@@ -87,6 +87,10 @@ export default {
                 最终路径 = 全局socks5 ? `/http://${socks5}` : `/http=${socks5}`;
             }
 
+            // 自定义 WebSocket 路径
+            if (url.searchParams.has('path') && url.searchParams.get('path') != '') {
+                最终路径 = url.searchParams.get('path');
+            }
             if (url.searchParams.has('ed') && url.searchParams.get('ed') != '') 最终路径 += `?ed=${url.searchParams.get('ed')}`;
             const 跳过证书验证 = (url.searchParams.has('scv')) ? true : false;
 
